@@ -1,0 +1,31 @@
+body {
+  font-family: "Nova Square", cursive;
+  background-color: #181818;
+  color: #b8fff7;
+}
+
+.timer {
+  display: flex;
+  position: absolute;
+
+  width: 700px;
+
+  left: 31%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.value {
+  font-size: 100px;
+  text-shadow: 1px 1px 6px #d8fffa13, -1px -1px 8px #59ffec73;
+}
+
+.label {
+  font-size: 20px;
+  color: #22ffe5;
+  text-shadow: 1px 1px 4px #d8fffa15, -1px -1px 6px #59ffec23;
+}
