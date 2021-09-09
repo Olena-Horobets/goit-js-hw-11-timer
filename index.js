@@ -3,6 +3,7 @@ class CountdownTimer {
     this.selector = selector;
     this.targetDate = new Date(date);
     this.onTick = onTick;
+    this.clockIdx = 0;
   }
 
   getTimeLeft() {
@@ -13,29 +14,35 @@ class CountdownTimer {
       const { days, hours, mins, secs } = this.getTimeComponents(deltaTime);
 
       this.onTick({ days, hours, mins, secs });
+
+      this.addClockAnimation(clockEls, doNext.bind(this));
     }, 1000);
   }
 
   pad(value) {
-    return String(value).padStart(2, "0");
+    return String(value).padStart(2, '0');
   }
 
   getTimeComponents(time) {
     const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
     const hours = this.pad(
-      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
     );
     const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
     const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
 
     return { days, hours, mins, secs };
   }
+
+  addClockAnimation(arr, cb) {
+    cb(arr);
+  }
 }
 
 const birthdayTimer = new CountdownTimer(
-  "#timer-1",
-  "Oct 19, 2021",
-  updateClockFaceW
+  '#timer-1',
+  'Oct 19, 2021',
+  updateClockFace,
 );
 
 const bdRefs = {
@@ -46,13 +53,26 @@ const bdRefs = {
   mins: document.querySelector('[data-value="mins"]'),
   secs: document.querySelector('[data-value="secs"]'),
 };
-const timeValues = bdRefs.timer.querySelectorAll("span[data-value]");
+const timeValues = bdRefs.timer.querySelectorAll('span[data-value]');
 
-function updateClockFaceW({ days, hours, mins, secs }) {
+function updateClockFace({ days, hours, mins, secs }) {
   bdRefs.days.textContent = days;
   bdRefs.hours.textContent = hours;
   bdRefs.mins.textContent = mins;
   bdRefs.secs.textContent = secs;
 }
 
-console.log(birthdayTimer.getTimeLeft());
+birthdayTimer.getTimeLeft();
+
+// Decorative clock
+const clockEls = document.querySelectorAll('.clock-el');
+
+function doNext(arr) {
+  arr[this.clockIdx].classList.toggle('animate');
+  this.clockIdx += 1;
+
+  if (this.clockIdx < arr.length) {
+  } else {
+    this.clockIdx = 0;
+  }
+}

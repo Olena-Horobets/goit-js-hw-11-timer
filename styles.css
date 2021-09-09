@@ -1,16 +1,43 @@
 body {
-  font-family: "Nova Square", cursive;
-  background-color: #181818;
+  font-family: 'Nova Square', cursive;
+  background-color: #000000;
   color: #b8fff7;
+}
+
+h1 {
+  font-family: 'Fira Mono', monospace;
+  color: #f783c7;
+  margin-left: 30%;
+  letter-spacing: -0.1rem;
+}
+
+.title-1 {
+  font-size: 59px;
+  line-height: 0;
+  margin-left: 110px;
+}
+
+.title-2 {
+  font-size: 144px;
+  line-height: 0.3;
+}
+
+.first-letter {
+  font-size: 190px;
+  color: #91fff2;
+}
+
+.title-3 {
+  font-size: 120px;
+  line-height: 0.5;
+  margin-top: 0;
 }
 
 .timer {
   display: flex;
   position: absolute;
-
   width: 700px;
-
-  left: 31%;
+  left: 29%;
 }
 
 .field {
@@ -26,6 +53,87 @@ body {
 
 .label {
   font-size: 20px;
-  color: #22ffe5;
+  color: #91fff2;
   text-shadow: 1px 1px 4px #d8fffa15, -1px -1px 6px #59ffec23;
+}
+
+/* decorative clock */
+.clock {
+  position: relative;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+}
+
+.clock-el {
+  position: absolute;
+  padding: 0;
+  transform: translate(-50%, -50%);
+
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b8fff7;
+  box-shadow: 6px 3px 6px #d8fffa15, -3px -3px 6px #59ffec23;
+
+  transform: scale(0.3);
+  opacity: 0;
+  transition: transform 170ms ease-out, opacity 100ms ease-out;
+}
+
+.el-1 {
+  top: 12%;
+  left: 50%;
+}
+.el-2 {
+  top: 18%;
+  left: 68%;
+}
+.el-3 {
+  top: 32%;
+  left: 82%;
+}
+.el-4 {
+  top: 50%;
+  left: 88%;
+}
+.el-5 {
+  top: 68%;
+  left: 82%;
+}
+.el-6 {
+  top: 82%;
+  left: 68%;
+}
+.el-7 {
+  top: 88%;
+  left: 50%;
+}
+.el-8 {
+  top: 82%;
+  left: 32%;
+}
+.el-9 {
+  top: 68%;
+  left: 18%;
+}
+.el-10 {
+  top: 50%;
+  left: 12%;
+}
+.el-11 {
+  top: 32%;
+  left: 18%;
+}
+.el-12 {
+  top: 18%;
+  left: 32%;
+}
+
+.animate {
+  transform: scale(1);
+  opacity: 1;
 }
