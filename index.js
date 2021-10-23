@@ -41,7 +41,7 @@ class CountdownTimer {
 
 const birthdayTimer = new CountdownTimer(
   '#timer-1',
-  'Oct 19, 2021',
+  'Oct 19, 2022',
   updateClockFace,
 );
 
